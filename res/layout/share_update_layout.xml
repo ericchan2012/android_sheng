@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:id="@+id/background" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@+id/header" layout="@layout/header_layout" />
+    <RelativeLayout android:id="@+id/main" android:background="@drawable/share_update_main" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="4.0dip" android:layout_marginBottom="0.0dip" android:layout_above="@+id/bottom" android:layout_below="@+id/header">
+        <EditText android:textSize="15.0sp" android:textColor="#ff000000" android:textColorLink="#ff0000ff" android:gravity="top" android:autoLink="all" android:linksClickable="false" android:id="@+id/edit" android:background="#ffffffff" android:padding="5.0dip" android:focusable="true" android:scrollbars="vertical" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="5.0dip" android:hint="@string/umeng_share_update_edittext_hint" android:layout_above="@+id/image" />
+        <TextView android:textColor="#ff000000" android:id="@+id/nickName" android:layout_width="wrap_content" android:layout_height="20.0dip" android:layout_marginLeft="10.0dip" android:layout_marginBottom="10.0dip" android:layout_alignParentLeft="true" android:layout_alignParentBottom="true" />
+        <ImageView android:id="@+id/image" android:visibility="gone" android:layout_width="60.0dip" android:layout_height="40.0dip" android:layout_marginRight="10.0dip" android:layout_marginBottom="5.0dip" android:adjustViewBounds="true" android:maxHeight="40.0dip" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+        <GridView android:gravity="center" android:id="@+id/gridView" android:background="@drawable/umeng_share_bg_gridview" android:padding="15.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="120.0dip" android:layout_margin="4.0dip" android:listSelector="@drawable/umeng_share_gridview_item" android:verticalSpacing="10.0dip" android:stretchMode="columnWidth" android:columnWidth="70.0dip" android:numColumns="6" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@+id/bottom" android:background="@drawable/umeng_share_update_bottom" android:layout_width="fill_parent" android:layout_height="44.0dip" android:layout_alignParentBottom="true" android:layout_centerInParent="true">
+        <Button android:textColor="#ffffffff" android:id="@+id/btnSend" android:background="@drawable/normal_button_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="20.0dip" android:text="@string/send_to_weibo" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:onClick="shareWeibo" />
+        <RelativeLayout android:layout_width="50.0dip" android:layout_height="44.0dip" android:layout_marginLeft="20.0dip" android:layout_centerVertical="true">
+            <ImageView android:id="@+id/share_image" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/browser_image" android:layout_centerHorizontal="true" android:layout_centerVertical="true" android:onClick="addShareImage" />
+            <ImageView android:id="@+id/close_image" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_close" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:onClick="closeShareImage" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@+id/sharing_layout" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" android:layout_centerVertical="true">
+            <ProgressBar android:id="@+id/sharing_bar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
+            <TextView android:id="@+id/sharing_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/sharing" android:layout_alignParentLeft="true" android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/layout_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:src="@drawable/recommend_font_bg" android:layout_alignParentTop="true" />
+    <CheckBox android:id="@+id/all_check_change" android:background="@drawable/recommend_selected_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="20.0dip" android:checked="true" android:button="@null" />
+    <GridView android:id="@+id/recommend_brand_list_view" android:layout_width="fill_parent" android:layout_height="0.0dip" android:horizontalSpacing="10.0dip" android:verticalSpacing="5.0dip" android:numColumns="4" android:layout_weight="1.0" />
+    <RelativeLayout android:background="@drawable/recommend_bottom_bg" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textColor="@android:color/white" android:gravity="center" android:id="@+id/current_city_text_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="@string/current_city" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" />
+        <Button android:id="@+id/finish_button" android:background="@drawable/recommend_button_bg" android:layout_width="wrap_content" android:layout_height="40.0dip" android:text="" android:layout_below="@+id/current_city_text_view" android:layout_centerHorizontal="true" />
+        <LinearLayout android:id="@+id/location_layout" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" android:layout_centerVertical="true">
+            <ProgressBar android:layout_width="wrap_content" android:layout_height="wrap_content" style="?android:attr/progressBarStyleSmall" />
+            <TextView android:textColor="@android:color/white" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/location_text" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

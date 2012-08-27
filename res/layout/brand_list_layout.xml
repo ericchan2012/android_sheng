@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <include layout="@layout/brand_header_layout" />
+
+            <com.ds.widget.PullToRefreshListView
+                xmlns:ptr="http://schemas.android.com/apk/res/com.ds.shen"
+                android:id="@+id/brand_list_view1"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_above="@+id/more_button"
+                android:layout_below="@+id/header"
+                ptr:ptrMode="both" />
+
+            <com.ds.widget.PullToRefreshListView
+                xmlns:ptr="http://schemas.android.com/apk/res/com.ds.shen"
+                android:id="@+id/brand_list_view2"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_above="@+id/more_button"
+                android:layout_below="@+id/header"
+                ptr:ptrMode="both" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/brand_list_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/brand_list_menu_bg"
+            android:paddingBottom="10.0dip"
+            android:visibility="gone" >
+
+            <TextView
+                android:id="@+id/select_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="10.0dip"
+                android:gravity="center"
+                android:text="@string/select_text"
+                android:textColor="@android:color/white"
+                android:textSize="17.0dip"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/all_select_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/select_text_view"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5.0dip"
+                android:background="@drawable/menu_red_button_bg"
+                android:text="@string/select_all"
+                android:textColor="@android:color/white"
+                android:textSize="20.0dip" />
+
+            <Button
+                android:id="@+id/male_select_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/all_select_button"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10.0dip"
+                android:background="@drawable/menu_white_button_bg"
+                android:text="@string/select_male"
+                android:textSize="20.0dip" />
+
+            <Button
+                android:id="@+id/female_select_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/male_select_button"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10.0dip"
+                android:background="@drawable/menu_white_button_bg"
+                android:text="@string/select_female"
+                android:textSize="20.0dip" />
+
+            <Button
+                android:id="@+id/cancel_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/female_select_button"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10.0dip"
+                android:background="@drawable/menu_black_button_bg"
+                android:text="@string/cancel"
+                android:textColor="@android:color/white"
+                android:textSize="20.0dip" />
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/brand_frame_guide"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#00000000"
+            android:foregroundGravity="center"
+            android:onClick="guideClick"
+            android:visibility="gone" >
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/guide_notice_bg" />
+        </FrameLayout>
+    </RelativeLayout>
+
+</FrameLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:background="@drawable/touming_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:background="@drawable/follow_menu_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_alignParentBottom="true">
+        <TextView android:textSize="17.0dip" android:textStyle="bold" android:textColor="@android:color/white" android:gravity="center" android:id="@+id/follow_check_text_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="@string/check_cancel_follow" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
+        <Button android:textSize="20.0dip" android:id="@+id/follow_check_yes_button" android:background="@drawable/menu_white_button_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="@string/ok" android:layout_below="@+id/follow_check_text_view" android:layout_centerHorizontal="true" android:onClick="followBrand" />
+        <Button android:textSize="20.0dip" android:textColor="@android:color/white" android:id="@+id/cancel_button" android:background="@drawable/menu_black_button_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="@string/cancel" android:layout_below="@+id/follow_check_yes_button" android:layout_centerHorizontal="true" android:onClick="unFollowBrand" />
+    </RelativeLayout>
+</RelativeLayout>

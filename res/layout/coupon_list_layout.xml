@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <include layout="@layout/header_layout" />
+
+        <RadioGroup
+            android:id="@+id/order_radio_group"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/order_by_time_bg"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/coupon_order_by_time"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/gray"
+                android:textSize="15.0dip" />
+
+            <RadioButton
+                android:id="@+id/coupon_order_by_rate"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:button="@null"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/gray"
+                android:textSize="15.0dip" />
+        </RadioGroup>
+
+        <com.ds.widget.PullToRefreshListView
+            xmlns:ptr="http://schemas.android.com/apk/res/com.ds.shen"
+            android:id="@+id/coupon_time_list_view"
+            android:layout_width="fill_parent"
+            android:layout_height="0.0dip"
+            android:layout_weight="0.12"
+            ptr:ptrMode="both" 
+            />
+
+        <com.ds.widget.PullToRefreshListView
+            xmlns:ptr="http://schemas.android.com/apk/res/com.ds.shen"
+            android:id="@+id/coupon_rate_list_view"
+            android:layout_width="fill_parent"
+            android:layout_height="0.0dip"
+            android:layout_weight="0.12"
+            ptr:ptrMode="both" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/coupon_frame_guide"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#00000000"
+        android:foregroundGravity="center"
+        android:onClick="guideClick"
+        android:visibility="gone" >
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/guide_bg" />
+    </FrameLayout>
+
+</FrameLayout>

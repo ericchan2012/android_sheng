@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/subbranch_list_adapter_bg" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@+id/ic_jiantou" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginTop="10.0dip" android:src="@drawable/ic_red_jiantou" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
+    <TextView android:id="@+id/subbranch_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="" android:layout_toRightOf="@+id/ic_jiantou" android:layout_alignTop="@+id/ic_jiantou" android:layout_alignParentRight="true" />
+    <TextView android:id="@+id/adress_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/address" android:layout_below="@+id/subbranch_name" android:layout_alignLeft="@+id/subbranch_name" />
+    <TextView android:id="@+id/address" android:paddingBottom="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:layout_toRightOf="@+id/adress_text" android:layout_alignTop="@+id/adress_text" />
+</RelativeLayout>

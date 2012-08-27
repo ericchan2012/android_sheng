@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/layout_bg"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+ 
+            <include
+                android:id="@+id/header"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                layout="@layout/header_layout" />
+
+            <ImageView
+                android:id="@+id/logo_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/header"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="60.0dip"
+                android:src="@drawable/ic_about" />
+
+            <TextView
+                android:id="@+id/app_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/logo_image"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10.0dip"
+                android:text="@string/app_name"
+                android:textColor="@color/black"
+                android:textSize="25.0dip" />
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/app_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25.0dip"
+                android:background="@drawable/version_bg" >
+
+                <TextView
+                    android:id="@+id/version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10.0dip"
+                    android:text="1.0.0.0"
+                    android:textColor="@color/gray"
+                    android:textSize="20.0dip" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/contact_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relativeLayout2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25.0dip"
+                android:text="@string/contact_title"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/contact_qq_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/contact_title"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10.0dip"
+                android:text="@string/contact_qq"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/contact_email_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/contact_qq_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10.0dip"
+                android:text="@string/contact_email"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/company_name_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/contact_email_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30.0dip"
+                android:text="@string/company_name"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/company_name_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10.0dip"
+                android:text="@string/copyright"
+                android:textColor="@color/black" />
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>
