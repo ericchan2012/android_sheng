@@ -3,7 +3,10 @@ package com.ds.shen;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import com.ds.utility.Contants;
+
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,10 +15,12 @@ import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.ExpandableListView.OnGroupCollapseListener;
@@ -26,6 +31,7 @@ import android.widget.TextView;
 
 public class RecommandActivity extends Activity {
 	private static final int SCROLL_ACTION = 0;
+	private static final int SELECT_CITY = 0;
 	private ExpandableListView mExpandableListView;
 	private int[] tags = new int[] { 0, 0, 0, 0, 0 };
 	private String[] groups;
@@ -36,6 +42,7 @@ public class RecommandActivity extends Activity {
 	FlowIndicator mFlowIndicator;
 	Timer mGalleryTimer;
 	private Resources mRes;
+	private Button mRightBtn;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -49,6 +56,32 @@ public class RecommandActivity extends Activity {
 		mRes = getResources();
 //		groups = new String[]{mRes.getString(R.string.femal),mRes.getString(R.string.),mRes.getString(R.string.drink),mRes.getString(R.string.entertament),mRes.getString(R.string.jiaju)};
 		groups = new String[]{"同步剧场", "奇艺出品", "热播电影", "3月片花速递", "动漫乐园"};
+		
+		mRightBtn = (Button)findViewById(R.id.top_right_button);
+		mRightBtn.setVisibility(View.VISIBLE);
+		mRightBtn.setText(R.string.default_city);
+		mRightBtn.setOnClickListener(new OnClickListener(){
+			public void onClick(View v) {
+				Intent intent = new Intent(RecommandActivity.this,CityListActivity.class);
+				Bundle bundle = new Bundle();
+				bundle.putString(Contants.DEFAULT_CITY, mRightBtn.getText().toString());
+				intent.putExtras(bundle);
+				startActivityForResult(intent,SELECT_CITY);
+			}
+		});
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if(resultCode == Activity.RESULT_OK){
+			switch(requestCode){
+			case SELECT_CITY:
+//				String city = data.getExtras().getString(key);
+				mRightBtn.setText("");
+				break;
+			}
+		}
 	}
 
 	private void initGalleryScrollTask() {
@@ -150,7 +183,7 @@ public class RecommandActivity extends Activity {
 			return childs[groupPosition][childPosition];
 		}
 
-		public long getChildId(int arg0, int arg1) {
+		public long getChildId(int groupPosition, int childPosition) {
 			return 0;
 		}
 

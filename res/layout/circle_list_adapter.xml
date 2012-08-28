@@ -1,7 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:orientation="vertical" android:id="@+id/RelativeLayout1" android:background="@drawable/circle_item_bg" android:layout_width="wrap_content" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:id="@+id/ic_jiantou" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:src="@drawable/ic_red_jiantou" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
-    <TextView android:gravity="left|center" android:id="@+id/business_area" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:text="TextView" android:layout_toRightOf="@+id/ic_jiantou" android:layout_centerVertical="true" />
-    <Button android:id="@+id/follow_button" android:background="@drawable/follow_button_bg" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="20.0dip" android:button="@null" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/circle_item_bg"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/ic_jiantou"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10.0dip"
+        android:src="@drawable/ic_red_jiantou" />
+
+    <TextView
+        android:id="@+id/business_area"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5.0dip"
+        android:layout_toRightOf="@+id/ic_jiantou"
+        android:gravity="left|center"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/follow_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20.0dip"
+        android:background="@drawable/follow_button_bg"
+        android:button="@null"
+        android:focusable="false" />
+
 </RelativeLayout>

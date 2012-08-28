@@ -88,7 +88,7 @@
     <string name="cancel">取消</string>
     <string name="sharing">正在发布微博</string>
     <string name="share_success">分享成功</string>
-    <string name="default_city">北京</string>
+    <string name="default_city">上海</string>
     <string name="location_text">正在定位...</string>
     <string name="local_fail">无法定位</string>
     <string name="city_not_in_list">城市暂未开通</string>
