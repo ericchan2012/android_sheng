@@ -28,10 +28,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ds.utility.Contants;
+import com.ds.widget.ImageScrollView;
 import com.ds.widget.ScrollImage;
 
 public class RecommandActivity extends Activity {
-	private static final int SCROLL_ACTION = 0;
 	private static final int SELECT_CITY = 0;
 	private ExpandableListView mExpandableListView;
 	private int[] tags = new int[] { 0, 0, 0, 0, 0 };
@@ -52,6 +52,7 @@ public class RecommandActivity extends Activity {
 			R.drawable.ic_gallery, R.drawable.ic_gallery, R.drawable.ic_gallery };
 	View imageScrollView;
 	final Handler scrollHandler = new Handler();
+	boolean isRunning = true;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +60,24 @@ public class RecommandActivity extends Activity {
 		setContentView(R.layout.recommand_activity);
 		initGroups();
 		prepareView();
+	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		isRunning = true;
+	}
+
+	@Override
+	protected void onStop() {
+		super.onStop();
+		isRunning = false;
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		isRunning = false;
 	}
 
 	private void initGroups() {
@@ -82,7 +101,6 @@ public class RecommandActivity extends Activity {
 			}
 		});
 	}
-
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
@@ -108,14 +126,14 @@ public class RecommandActivity extends Activity {
 		scroll.setPageControlView();
 		Thread t = new Thread() {
 			public void run() {
-				while (true) {
+				while (isRunning) {
 					scrollHandler.post(new Runnable() {
 						public void run() {
 							scroll.startScroll(whichScreen);
 						}
 					});
 					whichScreen++;
-					if (whichScreen > 2) {
+					if (whichScreen > (res.length -1)) {
 						whichScreen = 0;
 					}
 					try {

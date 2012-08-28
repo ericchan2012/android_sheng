@@ -1,4 +1,6 @@
 package com.ds.widget;
+import com.ds.shen.RecommandActivity;
+
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
@@ -24,6 +26,10 @@ public class ImageScrollView extends ViewGroup {
         initView(context);  
     }  
   
+    public int getCurrentIndex(){
+    	return currentScreenIndex;
+    }
+    
     @Override  
     protected void onLayout(boolean changed, int left, int top, int right,  
             int bottom) {  
@@ -68,7 +74,7 @@ public class ImageScrollView extends ViewGroup {
                         .getScaledMinimumFlingVelocity()) {  
                     if (velocityX > 0 && currentScreenIndex > 0) {  
                         fling = true;  
-                        scrollToScreen(currentScreenIndex - 1);  
+                        scrollToScreen(currentScreenIndex - 1);
                     } else if (velocityX < 0 && currentScreenIndex < getChildCount() - 1) {  
                         fling = true;  
                         scrollToScreen(currentScreenIndex + 1);  
