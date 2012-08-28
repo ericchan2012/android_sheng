@@ -34,15 +34,15 @@ public class FlowIndicator extends View {
 				R.styleable.FlowIndicator_point_seleted_color, 0xffff07);
 
 		int sum = attrs.getAttributeCount();
-		if (false) {
-			String str = "";
-			for (int i = 0; i < sum; i++) {
-				String name = attrs.getAttributeName(i);
-				String value = attrs.getAttributeValue(i);
-				str += "attr_name :" + name + ": " + value + "\n";
-			}
-			Log.i("attribute", str);
-		}
+//		if (false) {
+//			String str = "";
+//			for (int i = 0; i < sum; i++) {
+//				String name = attrs.getAttributeName(i);
+//				String value = attrs.getAttributeValue(i);
+//				str += "attr_name :" + name + ": " + value + "\n";
+//			}
+//			Log.i("attribute", str);
+//		}
 		a.recycle();
 	}
 

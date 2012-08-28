@@ -3,8 +3,6 @@ package com.ds.shen;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import com.ds.utility.Contants;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -29,6 +27,9 @@ import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.ds.utility.Contants;
+import com.ds.widget.ScrollImage;
+
 public class RecommandActivity extends Activity {
 	private static final int SCROLL_ACTION = 0;
 	private static final int SELECT_CITY = 0;
@@ -43,73 +44,95 @@ public class RecommandActivity extends Activity {
 	Timer mGalleryTimer;
 	private Resources mRes;
 	private Button mRightBtn;
+	ScrollImage scroll;
+	int whichScreen = -1;
+	int[] res = new int[] { R.drawable.ic_gallery, R.drawable.ic_gallery,
+			R.drawable.ic_gallery, R.drawable.ic_gallery,
+			R.drawable.ic_gallery, R.drawable.ic_gallery,
+			R.drawable.ic_gallery, R.drawable.ic_gallery, R.drawable.ic_gallery };
+	View imageScrollView;
+	final Handler scrollHandler = new Handler();
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.recommand_activity);
 		initGroups();
 		prepareView();
-		initGalleryScrollTask();
 	}
-	
-	private void initGroups(){
+
+	private void initGroups() {
 		mRes = getResources();
-//		groups = new String[]{mRes.getString(R.string.femal),mRes.getString(R.string.),mRes.getString(R.string.drink),mRes.getString(R.string.entertament),mRes.getString(R.string.jiaju)};
-		groups = new String[]{"同步剧场", "奇艺出品", "热播电影", "3月片花速递", "动漫乐园"};
-		
-		mRightBtn = (Button)findViewById(R.id.top_right_button);
+		// groups = new
+		// String[]{mRes.getString(R.string.femal),mRes.getString(R.string.),mRes.getString(R.string.drink),mRes.getString(R.string.entertament),mRes.getString(R.string.jiaju)};
+		groups = new String[] { "同步剧场", "奇艺出品", "热播电影", "3月片花速递", "动漫乐园" };
+
+		mRightBtn = (Button) findViewById(R.id.top_right_button);
 		mRightBtn.setVisibility(View.VISIBLE);
 		mRightBtn.setText(R.string.default_city);
-		mRightBtn.setOnClickListener(new OnClickListener(){
+		mRightBtn.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				Intent intent = new Intent(RecommandActivity.this,CityListActivity.class);
+				Intent intent = new Intent(RecommandActivity.this,
+						CityListActivity.class);
 				Bundle bundle = new Bundle();
-				bundle.putString(Contants.DEFAULT_CITY, mRightBtn.getText().toString());
+				bundle.putString(Contants.DEFAULT_CITY, mRightBtn.getText()
+						.toString());
 				intent.putExtras(bundle);
-				startActivityForResult(intent,SELECT_CITY);
+				startActivityForResult(intent, SELECT_CITY);
 			}
 		});
 	}
-	
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-		if(resultCode == Activity.RESULT_OK){
-			switch(requestCode){
+		if (resultCode == Activity.RESULT_OK) {
+			switch (requestCode) {
 			case SELECT_CITY:
-//				String city = data.getExtras().getString(key);
+				// String city = data.getExtras().getString(key);
 				mRightBtn.setText("");
 				break;
 			}
 		}
 	}
 
-	private void initGalleryScrollTask() {
-		mGalleryTimer = new Timer();
-		mGalleryTimer.scheduleAtFixedRate(new GalleryTask(), 0, 5000);
+	private void startScrollImage() {
+		imageScrollView = LayoutInflater.from(this).inflate(
+				R.layout.image_scroll_view, null);
+		scroll = (ScrollImage) imageScrollView.findViewById(R.id.simage1);
+		for (int i = 0; i < res.length; i++) {
+			ImageView imageView = new ImageView(this);
+			imageView.setImageResource(res[i]);
+			scroll.setImageResource(imageView);
+		}
+		scroll.setPageControlView();
+		Thread t = new Thread() {
+			public void run() {
+				while (true) {
+					scrollHandler.post(new Runnable() {
+						public void run() {
+							scroll.startScroll(whichScreen);
+						}
+					});
+					whichScreen++;
+					if (whichScreen > 2) {
+						whichScreen = 0;
+					}
+					try {
+						sleep(5000);
+					} catch (InterruptedException e) {
+					}
+				}
+			}
+		};
+		t.start();
 	}
 
 	private void prepareView() {
+		startScrollImage();
+		mGalleryAdapter = new GalleryAdapter(this);
 		mExpandableListView = (ExpandableListView) findViewById(R.id.expandableListView1);
 		mExpandableListAdapter = new ExpandableListAdapter();
-		View imageScrollView = LayoutInflater.from(this).inflate(
-				R.layout.image_scroll_view, null);
-		mGallery = (Gallery) imageScrollView.findViewById(R.id.scroll_gallery);
-		mFlowIndicator = (FlowIndicator) imageScrollView
-				.findViewById(R.id.myView);
-		mGalleryAdapter = new GalleryAdapter(this);
-		mFlowIndicator.setCount(mGalleryAdapter.getCount());
-		mGallery.setAdapter(mGalleryAdapter);
-		mGallery.setOnItemSelectedListener(new OnItemSelectedListener() {
-			public void onItemSelected(AdapterView<?> arg0, View arg1,
-					int arg2, long arg3) {
-				mFlowIndicator.setSeletion(arg2);
-			}
-
-			public void onNothingSelected(AdapterView<?> arg0) {
-
-			}
-		});
 		mExpandableListView.addHeaderView(imageScrollView);
 		mExpandableListView.setAdapter(mExpandableListAdapter);
 		// set the expandable auto expand
@@ -138,36 +161,6 @@ public class RecommandActivity extends Activity {
 					}
 				});
 	}
-
-	private class GalleryTask extends TimerTask {
-		@Override
-		public void run() {
-			mHandler.sendEmptyMessage(SCROLL_ACTION);
-		}
-	}
-
-	Handler mHandler = new Handler() {
-		@Override
-		public void handleMessage(Message msg) {
-			// TODO Auto-generated method stub
-			super.handleMessage(msg);
-			switch (msg.what) {
-			case SCROLL_ACTION:
-				MotionEvent e1 = MotionEvent.obtain(SystemClock.uptimeMillis(),
-						SystemClock.uptimeMillis(), MotionEvent.ACTION_DOWN,
-						89.333336f, 265.33334f, 0);
-				MotionEvent e2 = MotionEvent.obtain(SystemClock.uptimeMillis(),
-						SystemClock.uptimeMillis(), MotionEvent.ACTION_UP,
-						300.0f, 238.00003f, 0);
-
-				mGallery.onFling(e1, e2, -1300, 0);
-				break;
-
-			default:
-				break;
-			}
-		}
-	};
 
 	private class ExpandableListAdapter extends BaseExpandableListAdapter {
 
@@ -226,20 +219,20 @@ public class RecommandActivity extends Activity {
 				arg2 = LayoutInflater.from(RecommandActivity.this).inflate(
 						R.layout.list_group_item, null);
 				groupHolder = new GroupHolder();
-				groupHolder.img = (ImageView) arg2.findViewById(R.id.tag_img);
+//				groupHolder.img = (ImageView) arg2.findViewById(R.id.tag_img);
 				groupHolder.title = (TextView) arg2
 						.findViewById(R.id.title_view);
 				arg2.setTag(groupHolder);
 			} else {
 				groupHolder = (GroupHolder) arg2.getTag();
 			}
-			if (tags[arg0] == 0) {
-				groupHolder.img
-						.setImageResource(R.drawable.list_indecator_button);
-			} else {
-				groupHolder.img
-						.setImageResource(R.drawable.list_indecator_button_down);
-			}
+//			if (tags[arg0] == 0) {
+//				groupHolder.img
+//						.setImageResource(R.drawable.list_indecator_button);
+//			} else {
+//				groupHolder.img
+//						.setImageResource(R.drawable.list_indecator_button_down);
+//			}
 			groupHolder.title.setText(groups[arg0]);
 
 			return arg2;
