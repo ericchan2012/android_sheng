@@ -4,10 +4,9 @@
     android:layout_height="fill_parent" >
 
     <RelativeLayout
-        android:id="@+id/RelativeLayout1"
+        android:id="@id/RelativeLayout1"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="@color/white"
         android:orientation="vertical" >
 
         <LinearLayout
@@ -17,6 +16,8 @@
 
             <include layout="@layout/brand_header_layout" />
 
+            <include layout="@layout/brand_category" />
+            <!--
             <com.ds.widget.PullToRefreshListView
                 xmlns:ptr="http://schemas.android.com/apk/res/com.ds.shen"
                 android:id="@+id/brand_list_view1"
@@ -34,6 +35,7 @@
                 android:layout_above="@+id/more_button"
                 android:layout_below="@+id/header"
                 ptr:ptrMode="both" />
+            -->
         </LinearLayout>
 
         <RelativeLayout
@@ -43,7 +45,6 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:background="@drawable/brand_list_menu_bg"
-            android:paddingBottom="10.0dip"
             android:visibility="gone" >
 
             <TextView

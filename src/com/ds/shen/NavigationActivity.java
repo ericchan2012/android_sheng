@@ -73,8 +73,8 @@ public class NavigationActivity extends TabActivity implements OnClickListener {
 		mRecommandBtn = (RadioButton) findViewById(R.id.tab_coupon);
 		mBrandBtn = (RadioButton) findViewById(R.id.tab_brand);
 		mRankingBtn = (RadioButton) findViewById(R.id.tab_attention);
-		mMineBtn = (RadioButton) findViewById(R.id.tab_favorite);
-		mFavoriteBtn = (RadioButton) findViewById(R.id.tab_settings);
+		mMineBtn = (RadioButton) findViewById(R.id.tab_mine);
+		mFavoriteBtn = (RadioButton) findViewById(R.id.tab_favorite);
 		mRecommandBtn.setOnClickListener(this);
 		mBrandBtn.setOnClickListener(this);
 		mRankingBtn.setOnClickListener(this);
@@ -93,10 +93,10 @@ public class NavigationActivity extends TabActivity implements OnClickListener {
 		case R.id.tab_attention:
 			mTabHost.setCurrentTab(RANKING);
 			break;
-		case R.id.tab_favorite:
+		case R.id.tab_mine:
 			mTabHost.setCurrentTab(MINE);
 			break;
-		case R.id.tab_settings:
+		case R.id.tab_favorite:
 			mTabHost.setCurrentTab(FAVORITE);
 			break;
 		}

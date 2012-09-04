@@ -61,7 +61,7 @@ public class RecommandActivity extends Activity {
 		initGroups();
 		prepareView();
 	}
-	
+
 	@Override
 	protected void onResume() {
 		super.onResume();
@@ -101,14 +101,18 @@ public class RecommandActivity extends Activity {
 			}
 		});
 	}
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 		if (resultCode == Activity.RESULT_OK) {
 			switch (requestCode) {
 			case SELECT_CITY:
-				// String city = data.getExtras().getString(key);
-				mRightBtn.setText("");
+				if (data != null) {
+					Bundle bundle = data.getExtras();
+					String city = bundle.getString(Contants.SELECT_CITY);
+					mRightBtn.setText(city);
+				}
 				break;
 			}
 		}
@@ -133,7 +137,7 @@ public class RecommandActivity extends Activity {
 						}
 					});
 					whichScreen++;
-					if (whichScreen > (res.length -1)) {
+					if (whichScreen > (res.length - 1)) {
 						whichScreen = 0;
 					}
 					try {
@@ -237,20 +241,21 @@ public class RecommandActivity extends Activity {
 				arg2 = LayoutInflater.from(RecommandActivity.this).inflate(
 						R.layout.list_group_item, null);
 				groupHolder = new GroupHolder();
-//				groupHolder.img = (ImageView) arg2.findViewById(R.id.tag_img);
+				// groupHolder.img = (ImageView)
+				// arg2.findViewById(R.id.tag_img);
 				groupHolder.title = (TextView) arg2
 						.findViewById(R.id.title_view);
 				arg2.setTag(groupHolder);
 			} else {
 				groupHolder = (GroupHolder) arg2.getTag();
 			}
-//			if (tags[arg0] == 0) {
-//				groupHolder.img
-//						.setImageResource(R.drawable.list_indecator_button);
-//			} else {
-//				groupHolder.img
-//						.setImageResource(R.drawable.list_indecator_button_down);
-//			}
+			// if (tags[arg0] == 0) {
+			// groupHolder.img
+			// .setImageResource(R.drawable.list_indecator_button);
+			// } else {
+			// groupHolder.img
+			// .setImageResource(R.drawable.list_indecator_button_down);
+			// }
 			groupHolder.title.setText(groups[arg0]);
 
 			return arg2;

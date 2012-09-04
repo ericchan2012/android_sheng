@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/phone_bg">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/phoneCategoryMovie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:background="@drawable/phone_category_movie_bg" />
+
+            <TextView
+                android:id="@+id/phoneCategoryTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:layout_toRightOf="@+id/phoneCategoryMovie"
+                android:background="@drawable/phone_category_tv_bg" />
+
+            <TextView
+                android:id="@+id/phoneCategoryComic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:layout_toRightOf="@+id/phoneCategoryTv"
+                android:background="@drawable/phone_category_comic_bg" />
+
+            <TextView
+                android:id="@+id/phoneCategoryEnt"
+                android:layout_width="wrap_content"
+                android:clickable="true"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/phoneCategoryMovie"
+                android:background="@drawable/phone_category_ent_bg" />
+
+            <TextView
+                android:id="@+id/phoneCategoryTrailers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:layout_alignTop="@+id/phoneCategoryEnt"
+                android:layout_toRightOf="@+id/phoneCategoryEnt"
+                android:background="@drawable/phone_category_trailers_bg" />
+
+            <TextView
+                android:id="@+id/phoneCategoryMusic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:layout_alignTop="@+id/phoneCategoryEnt"
+                android:layout_toRightOf="@+id/phoneCategoryTrailers"
+                android:background="@drawable/phone_category_music_bg" />
+
+            <TextView
+                android:id="@+id/phoneCategoryQiyi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:layout_below="@+id/phoneCategoryEnt"
+                android:background="@drawable/phone_category_qiyi_bg" />
+
+            <TextView
+                android:id="@+id/phoneCategoryDocumtent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:layout_below="@+id/phoneCategoryEnt"
+                android:layout_toRightOf="@+id/phoneCategoryQiyi"
+                android:background="@drawable/phone_category_documtent_bg" />
+
+            <TextView
+                android:id="@+id/phoneCategoryTravel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:layout_below="@+id/phoneCategoryEnt"
+                android:layout_toRightOf="@+id/phoneCategoryDocumtent"
+                android:background="@drawable/phone_category_travel_bg" />
+
+            <TextView
+                android:id="@+id/phoneCategoryOpencourses"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:layout_below="@+id/phoneCategoryQiyi"
+                android:background="@drawable/phone_category_opencourses_bg" />
+
+            <TextView
+                android:id="@+id/phoneCategoryVariety"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:layout_below="@+id/phoneCategoryQiyi"
+                android:layout_toRightOf="@+id/phoneCategoryOpencourses"
+                android:background="@drawable/phone_category_variety_bg" />
+
+            <TextView
+                android:id="@+id/phoneCategoryMicrofilm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:layout_below="@+id/phoneCategoryQiyi"
+                android:layout_toRightOf="@+id/phoneCategoryVariety"
+                android:background="@drawable/phone_category_microfilm_bg" />
+
+            <TextView
+                android:id="@+id/phoneCategoryFashion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:layout_below="@+id/phoneCategoryQiyi"
+                android:layout_toRightOf="@+id/phoneCategoryVariety"
+                android:background="@drawable/phone_category_fashion_bg"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </ScrollView>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>

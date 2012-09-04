@@ -38,31 +38,31 @@
                 style="@style/bottom_radio"
                 android:checked="true"
                 android:drawableTop="@drawable/bottom_coupon_radio_button_bg"
-                android:text="@string/bottom_coupon" />
+                android:text="@string/bottom_recommand" />
 
             <RadioButton
                 android:id="@+id/tab_brand"
                 style="@style/bottom_radio"
                 android:drawableTop="@drawable/bottom_brand_radio_button_bg"
-                android:text="@string/bottom_brand" />
+                android:text="@string/brand_title" />
 
             <RadioButton
                 android:id="@+id/tab_attention"
                 style="@style/bottom_radio"
                 android:drawableTop="@drawable/bottom_follow_radio_button_bg"
-                android:text="@string/follow_title" />
+                android:text="@string/rank_title" />
+
+            <RadioButton
+                android:id="@+id/tab_mine"
+                style="@style/bottom_radio"
+                android:drawableTop="@drawable/bottom_setting_radio_button_bg"
+                android:text="@string/bottom_mine" />
 
             <RadioButton
                 android:id="@+id/tab_favorite"
                 style="@style/bottom_radio"
                 android:drawableTop="@drawable/bottom_favorite_radio_button_bg"
-                android:text="@string/favorite_title" />
-
-            <RadioButton
-                android:id="@+id/tab_settings"
-                style="@style/bottom_radio"
-                android:drawableTop="@drawable/bottom_setting_radio_button_bg"
-                android:text="@string/settings_title" />
+                android:text="@string/bottom_favorite" />
         </RadioGroup>
     </LinearLayout>
 

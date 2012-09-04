@@ -17,7 +17,7 @@
     <string name="back_text">返回</string>
     <string name="share_text">分享</string>
     <string name="brand_title">品牌分类</string>
-    <string name="follow_title">关注</string>
+    <string name="rank_title">排名</string>
     <string name="fans_count">粉丝:</string>
     <string name="subbranch_list">商圈分布</string>
     <string name="coupon_rate">好评:</string>
@@ -135,11 +135,10 @@
     <string name="exit_msg">確定退出省省？</string>
     <string name="request_timeout">请求超时，请稍后再试。</string>
     <string name="connect_exception">网络连接异常，请开启网络。</string>
-    <string name="bottom_coupon">推荐</string>
+    <string name="bottom_recommand">推荐</string>
     <string name="bottom_brand">品牌</string>
-    <string name="bottom_follow">排名</string>
-    <string name="bottom_favorite">我的</string>
-    <string name="bottom_setting">收藏</string>
+    <string name="bottom_mine">我的</string>
+    <string name="bottom_favorite">收藏</string>
     <string name="my_business_area_is_exist">商圈已关注，不能重复关注</string>
     <string name="sina_key">2642155477</string>
     <string name="sina_secret">6f36225e590e37c00fda9e6b923f6242</string>

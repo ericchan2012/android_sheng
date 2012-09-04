@@ -63,6 +63,13 @@ public class CityListActivity extends Activity {
 					ListView listview = (ListView)adapterView;
 					String city = (String)listview.getItemAtPosition(position);
 					mCurrentCity.setText(city);
+					Intent intent = new Intent();
+					Bundle bundle = new Bundle();
+					bundle.putString(Contants.SELECT_CITY, city);
+					intent.putExtras(bundle);
+					
+					setResult(Activity.RESULT_OK,intent);
+					CityListActivity.this.finish();
 				}
 			}
 		});
