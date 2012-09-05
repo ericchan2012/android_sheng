@@ -10,6 +10,7 @@
     <string name="coupon_title">最新折扣</string>
     <string name="coupon_detail">折扣详情</string>
     <string name="merchant_name">英睿信息</string>
+    <string name="phone_category_empty">暂无检索结果</string>
     <string name="more">更多…</string>
     <string name="detail_copy_right">此优惠信息由商家提供，商家拥有最终解释权</string>
     <string name="detail_left_days">剩余%d天，</string>
@@ -40,7 +41,7 @@
 看看有没有你也喜欢的:"</string>
     <string name="finish_title">完成</string>
     <string name="updating">更新中…</string>
-    <string name="favorite_title">收藏</string>
+    <string name="favorite_title">其他</string>
     <string name="coupon_list">折扣列表</string>
     <string name="brand_detail">品牌详情</string>
     <string name="brand">品牌</string>
@@ -138,7 +139,7 @@
     <string name="bottom_recommand">推荐</string>
     <string name="bottom_brand">品牌</string>
     <string name="bottom_mine">我的</string>
-    <string name="bottom_favorite">收藏</string>
+    <string name="bottom_favorite">其他</string>
     <string name="my_business_area_is_exist">商圈已关注，不能重复关注</string>
     <string name="sina_key">2642155477</string>
     <string name="sina_secret">6f36225e590e37c00fda9e6b923f6242</string>

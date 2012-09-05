@@ -53,6 +53,9 @@ public class NavigationActivity extends TabActivity implements OnClickListener {
 		// TODO Auto-generated method stub
 		mTabHost.addTab(mRecTabSpec);
 		mTabHost.addTab(mBrandTabSpec);
+		mTabHost.addTab(mRankingTabSpec);
+		mTabHost.addTab(mMineTabSpec);
+		mTabHost.addTab(mFavoriteTabSpec);
 
 		mTabHost.setCurrentTab(0);
 	}
@@ -61,14 +64,20 @@ public class NavigationActivity extends TabActivity implements OnClickListener {
 		mTabHost = getTabHost();
 		mRecommandIntent = new Intent(this, RecommandActivity.class);
 		mBrandIntent = new Intent(this, BrandListActivity.class);
-		mRankingIntent = new Intent(this, BrandListActivity.class);
-		mMineIntent = new Intent(this, BrandListActivity.class);
-		mFavoriteIntent = new Intent(this, BrandListActivity.class);
+		mRankingIntent = new Intent(this, RankingActivity.class);
+		mMineIntent = new Intent(this, MineActivity.class);
+		mFavoriteIntent = new Intent(this, FavoriteActivity.class);
 
 		mRecTabSpec = mTabHost.newTabSpec(TAB_SPEC_RECOMMAND)
 				.setIndicator("tab1").setContent(mRecommandIntent);
 		mBrandTabSpec = mTabHost.newTabSpec(TAB_SPEC_BRAND)
 				.setIndicator("tab2").setContent(mBrandIntent);
+		mRankingTabSpec = mTabHost.newTabSpec(TAB_SPEC_RANKING)
+				.setIndicator("tab2").setContent(mRankingIntent);
+		mMineTabSpec = mTabHost.newTabSpec(TAB_SPEC_MINE)
+				.setIndicator("tab2").setContent(mMineIntent);
+		mFavoriteTabSpec = mTabHost.newTabSpec(TAB_SPEC_FAVORITE)
+				.setIndicator("tab2").setContent(mFavoriteIntent);
 
 		mRecommandBtn = (RadioButton) findViewById(R.id.tab_coupon);
 		mBrandBtn = (RadioButton) findViewById(R.id.tab_brand);

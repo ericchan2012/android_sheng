@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/phoneTopLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/brand_header_layout" />
+
+    <RelativeLayout
+        android:id="@+id/phoneTopFilterLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:background="@drawable/phone_category_label"
+        android:gravity="center_vertical" >
+
+        <com.ds.widget.HorizontalListView
+            android:id="@+id/phoneTopFilterListView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center" />
+
+        <ImageView
+            android:id="@+id/phoneCategoryLeftArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/phone_category_left_shadow"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/phoneCategoryRightArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/phone_category_right_shadow"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/phoneTopFilterLayout"
+        android:background="@drawable/phone_index_focus_shadow" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/phoneTopFilterLayout" >
+
+        <ListView
+            android:id="@+id/phoneTopListView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:cacheColorHint="@android:color/transparent"
+            android:divider="@drawable/phone_line"
+            android:drawSelectorOnTop="true"
+            android:listSelector="@drawable/phone_album_listed_selector_bg" />
+
+        <TextView
+            android:id="@+id/phoneTopEmptyText"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:text="@string/phone_category_empty"
+            android:textColor="@drawable/qiyi_text_color"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</RelativeLayout>
